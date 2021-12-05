@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>callback,apply,bind</h2>
+    <script>
+
+        var cal = {
+    'sum':function (){
+       let add = this.num1 + this.num2;
+       console.log(add);
+    },
+    'mul':function(){
+        let pro = this.num1 * this.num2;
+        console.log(pro); 
+    },
+    'diff':function(){
+        let sub = this.num1 - this.num2;
+        console.log(sub);
+    },
+    'div':function(){
+        let divide = this.num1 / this.num2;
+        console.log(divide);
+    }
+
+}
+let fn = function(a,b){
+
+   console.log(a*b);
+}
+let obj ={
+    'num1':2,
+    'num2':25,
+};
+let obj2 ={
+    'num1':16,
+    'num2':9,
+};
+var obj3={
+    'num1':25,
+    'num2':4,
+};
+//call function
+cal.sum.call(obj);
+cal.diff.call(obj);
+cal.mul.call(obj);
+cal.div.call(obj);
+// apply function
+cal.sum.apply(obj2);
+cal.diff.apply(obj2);
+cal.mul.apply(obj2);
+cal.div.apply(obj2);
+//Bind function
+let new_fn = cal.div.bind(obj3);
+new_fn();
+// for passing parameter in bind function
+let new_par = fn.bind()
+new_par(20,6)
+    </script>
+</body>
+</html>
